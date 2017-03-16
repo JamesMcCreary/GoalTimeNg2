@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<div>
+  <h2> Add a Task to Accomplish Your Goal!</h2>
+  <form [formGroup]="addTaskForm" (submit)="addTaskAlert()">
+  
+    <label for="taskName">Task Name:</label>
+    <input type="text" class="form-control" formControlName="taskName" id="taskName">
+    <div style="height: 30px;">
+      <app-validation-messages [control]="addTaskForm.controls.taskName"></app-validation-messages>
+    </div>
+
+    <label>Task Description:</label>
+    <input type="text" class="form-control" formControlName="taskDescription">
+    <div style="height: 30px;">
+      <app-validation-messages [control]="addTaskForm.controls.taskDescription"></app-validation-messages>
+    </div>
+
+    <label>Goal:</label>
+    <input type="text" class="form-control" formControlName="taskGoal">
+    <div style="height: 30px;">
+      <app-validation-messages [control]="addTaskForm.controls.taskGoal"></app-validation-messages>
+    </div>
+
+    <label>Priority:</label>
+    <input type="number" class="form-control" formControlName="taskPriority">
+    <div style="height: 30px;">
+      <app-validation-messages [control]="addTaskForm.controls.taskPriority"></app-validation-messages>
+    </div>
+
+    <label>Status:</label>
+    <input type="text" class="form-control" formControlName="taskStatus">
+    <div style="height: 30px;">
+      <app-validation-messages [control]="addTaskForm.controls.taskStatus"></app-validation-messages>
+    </div>
+
+    <label>Start Time:</label>
+    <input type="date" class="form-control" formControlName="taskStartTime">
+    <div style="height: 30px;">
+      <app-validation-messages [control]="addTaskForm.controls.taskStartTime"></app-validation-messages>
+    </div>
+
+    <label>End Time:</label>
+    <input type="date" class="form-control" formControlName="taskEndTime">
+    <div style="height: 30px;">
+      <app-validation-messages [control]="addTaskForm.controls.taskEndTime"></app-validation-messages>
+    </div>
+
+    <label>Archived:</label>
+    <input type="checkbox" class="form-control" formControlName="taskArchived">
+    <div style="height: 30px;">
+      <app-validation-messages [control]="addTaskForm.controls.taskArchived"></app-validation-messages>
+    </div>
+
+    <hr style="border-style: inset; border-width: 2px;">
+    <button type="submit" [disabled]="!addTaskForm.valid" class="btn btn-default" onclick="addTask()" style="float: right; margin-right: 5%; margin-bottom: 2%;">Submit</button>
+  </form>
+
+
+<!-- 
+  <form class="navbar-form navbar-left" role="search">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search">
+    </div>
+    <button type="submit" class="btn btn-default" onclick="addTask()">Submit</button>
+  </form>
+
+</div> -->
