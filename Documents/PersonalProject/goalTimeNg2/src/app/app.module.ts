@@ -13,6 +13,8 @@ import { TaskAddComponent } from './task/task-add.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ValidationMessagesComponent } from './task/validation-messages.component';
 import { ValidationService } from './task/validation.service';
+import { HttpResultComponent } from './task/http-result.component';
+import { TaskDataService } from './task-data.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { ValidationService } from './task/validation.service';
     // Task,
     TaskAddComponent,
     WelcomeComponent,
-    ValidationMessagesComponent
+    ValidationMessagesComponent,
+    HttpResultComponent
   ],
   imports: [
     BrowserModule,

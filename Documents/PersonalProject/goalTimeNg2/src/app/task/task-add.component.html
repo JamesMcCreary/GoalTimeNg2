@@ -2,8 +2,8 @@
 
 <div>
   <h2> Add a Task to Accomplish Your Goal!</h2>
-  <form [formGroup]="addTaskForm" (submit)="addTaskAlert()">
-  
+  <form [formGroup]="addTaskForm" (ngSubmit)="addTaskAlert()">
+
     <label for="taskName">Task Name:</label>
     <input type="text" class="form-control" formControlName="taskName" id="taskName">
     <div style="height: 30px;">
@@ -53,7 +53,10 @@
     </div>
 
     <hr style="border-style: inset; border-width: 2px;">
-    <button type="submit" [disabled]="!addTaskForm.valid" class="btn btn-default" onclick="addTask()" style="float: right; margin-right: 5%; margin-bottom: 2%;">Submit</button>
+
+<!--     <button type="submit" [disabled]="!addTaskForm.valid" class="btn btn-default" style="float: right; margin-right: 5%; margin-bottom: 2%;"><a [routerLink]="['/httpResult']">Submit</a></button> -->
+
+  <button type="button" class="btn btn-default" style="float: right; margin-right 5%; margin-bottom: 2%;" (click)="addTaskAklert()">Testing addTaskAlert Redirect</button>
   </form>
 
 
