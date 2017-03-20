@@ -4,6 +4,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { HeaderComponent } from './header.component';
 import { TaskAddComponent } from './task/task-add.component';
 import { HttpResultComponent } from './task/http-result.component';
+import { TaskListComponent } from './task/task-list.component';
+import { TaskDetailComponent } from './task/task-detail.component';
 
 
 // import { RecipesComponent } from "./recipes/recipes.component";
@@ -14,7 +16,9 @@ const APP_ROUTES: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: WelcomeComponent},
   {path: 'addTask', component: TaskAddComponent},
-  {path: 'httpResult', component: HttpResultComponent }
+  {path: 'taskList', component: TaskListComponent },
+  {path: 'httpResult', component: HttpResultComponent },
+  {path: 'task/:id', component: TaskDetailComponent }
 ];
 
 export const routing = RouterModule.forRoot(APP_ROUTES);

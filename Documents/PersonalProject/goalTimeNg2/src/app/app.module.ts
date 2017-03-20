@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, animate, transition } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
@@ -15,24 +15,37 @@ import { ValidationMessagesComponent } from './task/validation-messages.componen
 import { ValidationService } from './task/validation.service';
 import { HttpResultComponent } from './task/http-result.component';
 import { TaskDataService } from './task-data.service';
+import { TaskListComponent } from './task/task-list.component';
+//import {ToasterComponent, ToastComponent, ToasterService} from 'angular2-toastr/index';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {ToastyModule} from 'ng2-toasty';
+import { TaskDetailComponent } from './task/task-detail.component';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    // Task,
-    TaskAddComponent,
-    WelcomeComponent,
-    ValidationMessagesComponent,
-    HttpResultComponent
+  AppComponent,
+  HeaderComponent,
+  // Task,
+  TaskAddComponent,
+  WelcomeComponent,
+  ValidationMessagesComponent,
+  HttpResultComponent,
+  TaskListComponent,
+  TaskDetailComponent
+  // ToasterComponent,
+  // ToastComponent,
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    MaterialModule.forRoot(),
-    ReactiveFormsModule,
-    routing
+  BrowserModule,
+  FormsModule,
+  HttpModule,
+  MaterialModule.forRoot(),
+  ReactiveFormsModule,
+  routing,
+  BrowserModule,
+   ToastyModule.forRoot()
   //  HammerJs
   ],
   providers: [ValidationService],

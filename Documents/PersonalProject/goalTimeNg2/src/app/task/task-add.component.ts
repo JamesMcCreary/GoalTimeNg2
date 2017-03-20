@@ -5,21 +5,26 @@ import { TaskDataService } from '../task-data.service';
 import { Task } from '../task';
 import { Router } from '@angular/router';
 import 'rxjs/Rx';
+import {ToasterService} from 'angular2-toastr/index';
+import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
+
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+
 
 
 @Component({
 	selector: 'app-task-add',
 	templateUrl: './task-add.component.html',
-	providers: [TaskDataService]
+	providers: [TaskDataService, ToasterService, ToastyService]
 })
 export class TaskAddComponent {
-	addTaskForm: any;
+	addTaskForm: FormGroup;
 	//private taskDataService: TaskDataService;
 	private responseFromAddTask: string;
 	private responseFromAddTaskAklert: string;
 
 
-	constructor(private taskDataService: TaskDataService, private router: Router, private formBuilder: FormBuilder) {
+	constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, private taskDataService: TaskDataService, private router: Router, private formBuilder: FormBuilder) {
 		this.addTaskForm = this.formBuilder.group({
 			'taskName': ['', Validators.required],
 			'taskDescription': ['', Validators.required],
@@ -30,6 +35,7 @@ export class TaskAddComponent {
 			'taskEndTime': ['', Validators.required],
 			'taskArchived': ['']
 		});
+		this.toastyConfig.theme = 'bootstrap';
 
 		console.log(this.addTaskForm);
 	}
@@ -37,24 +43,24 @@ export class TaskAddComponent {
 
 
 	addTask() {
-		this.taskDataService.addTask(this.addTaskForm.taskName, this.addTaskForm.taskDescription, this.addTaskForm.taskGoal,
-								this.addTaskForm.taskPriority, this.addTaskForm.taskStatus, this.addTaskForm.taskStartTime,
-								this.addTaskForm.taskEndTime, this.addTaskForm.taskArchived)
-							.subscribe(
-								stringResponse => this.responseFromAddTask = stringResponse,
-								error => console.log(error),
-								() => console.log(this.responseFromAddTask)
-							);
+		console.log(this.addTaskForm.value, this.addTaskForm.valid);
+
+		this.taskDataService.addTask(this.addTaskForm.value)
+		.subscribe(
+			stringResponse => this.responseFromAddTask = JSON.stringify(stringResponse),
+			error => console.log(error),
+			() => console.log("The following task has been added: ", this.responseFromAddTask)
+		);
 
 	}
 
 	addTaskAklert() {
 		this.taskDataService.addTaskAklert()
-							.subscribe(
-								data => this.responseFromAddTaskAklert = JSON.stringify(data),
-								error => alert(error),
-								() => console.log(this.responseFromAddTaskAklert)
-							);
+		.subscribe(
+			data => this.responseFromAddTaskAklert = JSON.stringify(data),
+			error => alert(error),
+			() => console.log(this.responseFromAddTaskAklert)
+			);
 		
 	}
 
@@ -71,10 +77,45 @@ export class TaskAddComponent {
 	testResponse() {
 		this.taskDataService.testResponse();
 	}
-	// addTaskAlert() {
-	// 	if(this.addTaskForm.dirty && this.addTaskForm.valid) {
-	// 		alert('Task Name: ${this.addTaskForm.value.taskName} was successfully added!');
-	// 	}
-	// }
 
-}
+addToast() {
+        // Just add default Toast with title only
+        //this.toastyService.default('Hi there');
+        // Or create the instance of ToastOptions
+        var toastOptions:ToastOptions = {
+            title: "Your task was successfully added",
+            msg: "",
+            showClose: true,
+            timeout: 5000,
+            theme: 'bootstrap',
+            // onAdd: (toast:ToastData) => {
+            //     console.log('Toast ' + toast.id + ' has been added!');
+            // },
+            // onRemove: function(toast:ToastData) {
+            //     console.log('Toast ' + toast.id + ' has been removed!');
+            // }
+        };
+        // Add see all possible types in one shot
+       // this.toastyService.info(toastOptions);
+        this.toastyService.success(toastOptions);
+        // this.toastyService.wait(toastOptions);
+        // this.toastyService.error(toastOptions);
+        // this.toastyService.warning(toastOptions);
+    }
+ //    addToast() {
+ //        // See all possible types in one shot.
+ //        // pass parameters as (title:string, message:string, show_close_button:boolean, timeout:number)
+ //        this.toaster.success('Task Added', 'Your task was successfully added.', true, 3000);
+ //        // this.toaster.error('title', 'message', true, 2000);
+ //        // this.toaster.info('title', 'message', true, 3000);
+ //        // this.toaster.warning('title', 'message', true, 4000);
+ //        // this.toaster.wait('title', 'message', true, 0);
+ //    }
+	
+	// // addTaskAlert() {
+	// 	// 	if(this.addTaskForm.dirty && this.addTaskForm.valid) {
+	// 		// 		alert('Task Name: ${this.addTaskForm.value.taskName} was successfully added!');
+	// 		// 	}
+	// 		// }
+
+		}

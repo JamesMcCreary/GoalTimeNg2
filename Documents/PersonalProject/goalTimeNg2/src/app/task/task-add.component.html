@@ -2,7 +2,7 @@
 
 <div>
   <h2> Add a Task to Accomplish Your Goal!</h2>
-  <form [formGroup]="addTaskForm" (ngSubmit)="addTaskAlert()">
+  <form novalidate (ngSubmit)="addTask(addTaskForm)" [formGroup]="addTaskForm">
 
     <label for="taskName">Task Name:</label>
     <input type="text" class="form-control" formControlName="taskName" id="taskName">
@@ -56,9 +56,12 @@
 
 <!--     <button type="submit" [disabled]="!addTaskForm.valid" class="btn btn-default" style="float: right; margin-right: 5%; margin-bottom: 2%;"><a [routerLink]="['/httpResult']">Submit</a></button> -->
 
-  <button type="button" class="btn btn-default" style="float: right; margin-right 5%; margin-bottom: 2%;" (click)="addTaskAklert()">Testing addTaskAlert Redirect</button>
+  <button type="button" class="btn btn-default" style="float: right; margin-right: 5% !important; margin-bottom: 2% !important;" (click)="addToast()">Add Task</button>
+    <ng2-toasty style="float: right; color: green; margin-right: 5%;"></ng2-toasty>
   </form>
 
+
+<!-- (click)="addTask(addTaskForm) -->
 
 <!-- 
   <form class="navbar-form navbar-left" role="search">

@@ -1,0 +1,22 @@
+<h2 style="text-align: center; padding-bottom: 2%;"> Your Tasks for Today </h2>
+<div class="list-group" *ngFor="let task of taskList">
+	<div class="list-group-item list-group-item-action flex-column align-items-start">
+<!-- 	<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+ -->		<div class="d-flex w-100 justify-content-between">
+			<button type="button" class = "btn btn-danger" style="text-align: middle; float:right; margin-right: 1%; margin-bottom: 5%;"> Archive </button>
+			<button type="button" class = "btn btn-primary" style="text-align: middle; float:right; margin-right: 1%; margin-bottom: 5%;" [routerLink]="['/task', task.id]">EDIT</button>
+			<button type="button" class = "btn btn-info" style="text-align: middle; float:right; margin-right: 1%; margin-bottom: 5%;"> Add to Calendar </button>
+			<h5 class="mb-1">{{task.name}}</h5>
+			<div style="display: inline; width: 100px; max-width: 100px; padding-right: 1%; margin-right: 0%;">
+				<small>Description: {{task.description}}</small>
+			</div>
+			<div style="display: inline; width: 7%; padding-right: 1%; margin-right: 0%;">
+				<small>Goal: {{task.goal}}</small>
+			</div>
+			<div style="display: inline; width: 7%; padding-right: 1%; margin-right: 0%;">
+				<small>Priority: {{task.priority}}</small>
+			</div>
+		</div>
+	</div>
+<!-- 	</a>
+ --></div>
