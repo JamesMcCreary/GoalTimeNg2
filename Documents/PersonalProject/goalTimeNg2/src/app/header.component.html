@@ -19,21 +19,58 @@
 
  */
  </script> 
- -->
+-->
 
 
 
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<md-menu #menu="mdMenu"></md-menu>
+<!-- <md-menu #menu="mdMenu"></md-menu>
 <md-toolbar style="background-color: #ff4d4d;">
     <span [routerLink]="['']">GoalTime</span>
     <span class="spacer"></span>
     <button md-icon-button [mdMenuTriggerFor]="menu">
       <md-icon>more_vert</md-icon>
-      <!-- <i class="material-icons">face</i> -->
+          <button md-menu-item>Option 1</button>
+    <button md-menu-item>Option 2</button>
+       <i class="material-icons">face</i>
     </button>
-</md-toolbar>
+</md-toolbar> -->
+
+
+<md-toolbar style="background-color: #ff4d4d;">
+	<span [routerLink]="['']">GoalTime</span>
+	<span class="spacer"></span>
+	<button md-icon-button [mdMenuTriggerFor]="menu">
+		<md-icon>more_vert</md-icon>
+	</button>
+</md-toolbar> 
+<md-menu #menu="mdMenu">
+	<button md-menu-item>Account</button>
+	<button md-menu-item [routerLink]="['signup']">Signup</button>
+	<button md-menu-item [routerLink]="['login']">Login</button>
+</md-menu>
+
+<!--   <md-toolbar color="primary">
+    <span><md-icon>mood</md-icon></span>
+
+    <span>Yay, Material in Angular 2!</span>
+	<span class ="spacer"></span>
+    <button md-icon-button [md-menu-trigger-for]="menu">
+      <md-icon>more_vert</md-icon>
+    </button>
+  </md-toolbar>
+  <md-menu x-position="after" #menu="mdMenu">
+    <button md-menu-item>Option 1</button>
+    <button md-menu-item>Option 2</button>
+  </md-menu>
+-->
+
+
+
+
+
+
 
 <script>
 /*
@@ -48,21 +85,21 @@
 </script>
 
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
 <!--     <div class="navbar-header">
       <a class="navbar-brand" [routerLink]="['/home']">GoalTime</a>
-    </div> -->
+  </div> -->
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li routerLinkActive="active"><a [routerLink]="['/home']">Home</a></li>
-        <li routerLinkActive="active"><a [routerLink]="['/addTask']">Add Task</a></li>
-        <li routerLinkActive="active"><a [routerLink]="['/taskList']">View All Tasks</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  	<ul class="nav navbar-nav">
+  		<li routerLinkActive="active"><a [routerLink]="['/home']">Home</a></li>
+  		<li routerLinkActive="active"><a [routerLink]="['/addTask']">Add Task</a></li>
+  		<li routerLinkActive="active"><a [routerLink]="['/taskList']">View All Tasks</a></li>
+  	</ul>
+  </div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
 </nav>
 
 

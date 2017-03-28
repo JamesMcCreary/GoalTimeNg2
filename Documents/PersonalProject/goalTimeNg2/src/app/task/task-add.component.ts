@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ValidationService } from './validation.service';
-import { TaskDataService } from '../task-data.service';
-import { Task } from '../task';
+import { TaskDataService } from './task-data.service';
+import { Task } from '../_models/task';
 import { Router } from '@angular/router';
 import 'rxjs/Rx';
 import {ToasterService} from 'angular2-toastr/index';

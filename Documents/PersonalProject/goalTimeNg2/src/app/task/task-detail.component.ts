@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TaskDataService } from '../task-data.service';
-import { Task } from '../task';
+import { TaskDataService } from './task-data.service';
+import { Task } from '../_models/task';
 
 @Component({
   selector: 'app-task-detail',

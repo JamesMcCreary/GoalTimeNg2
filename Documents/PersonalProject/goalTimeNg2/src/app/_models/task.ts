@@ -16,14 +16,14 @@ export class Task {
  //  }
 
     constructor(
-		name: string = '';
-		description: string;
-		goal: string;
-		priority: number;
-		status: string;
-		startTime: string;
-		endTime: string;
-		archived: boolean;
-		userName: string;
+		name: string = '',
+		description: string,
+		goal: string,
+		priority: number,
+		status: string,
+		startTime: string,
+		endTime: string,
+		archived: boolean,
+		userName: string
      ){}
 }
