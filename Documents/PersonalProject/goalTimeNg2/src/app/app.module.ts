@@ -65,7 +65,8 @@ import { AlertComponent } from './alert.component';
         AuthGuard,
         AlertService,
         AuthenticationService,
-        UserService],
+        UserService,
+        TaskDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
