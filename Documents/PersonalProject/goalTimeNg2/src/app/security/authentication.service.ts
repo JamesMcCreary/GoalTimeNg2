@@ -50,6 +50,8 @@ export class AuthenticationService implements OnInit{
         var credentials = JSON.stringify({username: this.username, password: this.password});
         console.log("The credentials inside authenticiation service is: ", credentials);
         return JSON.stringify({username: this.username, password: this.password});
+
+
     }
 
 }
